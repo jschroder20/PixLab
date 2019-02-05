@@ -65,9 +65,16 @@ public class IntArrayWorker
           }
       }
       return compare;
+  }
 
+  public int getColTotal(int number) {
+    int total = 0;
+    for (int i = 0; i<matrix.length; i++){
+        total += matrix[i][number];
+      }
+      return total;
+  }
 
-}
   /**
    * Method to fill with an increasing count
    */
