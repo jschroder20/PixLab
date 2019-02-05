@@ -32,6 +32,7 @@ public class IntArrayWorkerTester
     worker.fillPattern1();
     int count = worker.getCount(1);
     System.out.println("Count should be 6 and count is " + count);
+    System.out.println();
   }
   
   /** Method to test getTotal */
@@ -42,6 +43,8 @@ public class IntArrayWorkerTester
     worker.setMatrix(nums2);
     int total = worker.getTotal();
     System.out.println("Total should be 21 and is " + total);
+    System.out.println();
+
   }
   
   /** Method to test getTotalNested */
@@ -77,6 +80,8 @@ public class IntArrayWorkerTester
     worker.setMatrix(nums5);
     largest = worker.getLargest();
     System.out.println("Largest should be 6 and is " + largest);
+    System.out.println();
+
   }
   
   /** Method to test getColTotal */
@@ -95,12 +100,12 @@ public class IntArrayWorkerTester
   
   public static void main(String[] args)
   {
-    /*testSetMatrix();
+    testSetMatrix();
     testFillPattern1();
     testGetCount();
     testGetTotal();
     testGetTotalNested();
-    testGetLargest();*/
+    testGetLargest();
     testGetColTotal();
   }
 }
