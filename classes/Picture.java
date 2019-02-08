@@ -86,14 +86,57 @@ public class Picture extends SimplePicture
   }
   
   /** Method to set the blue to 0 */
-  public void zeroBlue()
-  {
+  public void zeroBlue() {
     Pixel[][] pixels = this.getPixels2D();
     for (Pixel[] rowArray : pixels)
     {
       for (Pixel pixelObj : rowArray)
       {
         pixelObj.setBlue(0);
+      }
+    }
+  }
+
+  public void zeroRed() {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(0);
+      }
+    }
+  }
+
+  public void zeroGreen() {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+
+  public void negate() {
+    Pixel [][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels){
+      for (Pixel pixelObj : rowArray) {
+        pixelObj.setRed(255-pixelObj.getRed());
+        pixelObj.setGreen(255-pixelObj.getGreen());
+        pixelObj.setBlue(255-pixelObj.getBlue());
+      }
+    }
+  }
+
+  public void grayscale(){
+    Pixel [][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels){
+      for (Pixel pixelObj : rowArray) {
+        pixelObj.setRed((pixelObj.getRed()+pixelObj.getGreen()+pixelObj.getBlue()/3));
+        pixelObj.setGreen((pixelObj.getRed()+pixelObj.getGreen()+pixelObj.getBlue()/3));
+        pixelObj.setBlue((pixelObj.getRed()+pixelObj.getGreen()+pixelObj.getBlue()/3));
       }
     }
   }
