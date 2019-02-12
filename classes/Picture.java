@@ -205,8 +205,7 @@ public class Picture extends SimplePicture
   }
   
   /** Mirror just part of a picture of a temple */
-  public void mirrorTemple()
-  {
+  public void mirrorTemple() {
     int mirrorPoint = 276;
     Pixel leftPixel = null;
     Pixel rightPixel = null;
@@ -224,10 +223,62 @@ public class Picture extends SimplePicture
         rightPixel = pixels[row]                       
                          [mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
+        count++;
+      }
+    }
+    System.out.println(count);
+  }
+
+  public void mirrorArms() {
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+
+    // loop through the rows
+    for (int row = 157; row < 192; row++)
+    {
+      // loop through the columns
+      for (int col = 108; col < 171; col++)
+      {
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[192-row+192][col];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
+
+    // loop through the rows
+    for (int row = 171; row < 193; row++)
+    {
+      // loop through the columns
+      for (int col = 239; col < 289; col++)
+      {
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[192-row+192][col];
+        bottomPixel.setColor(topPixel.getColor());
       }
     }
   }
-  
+
+  public void mirrorGull() {
+    Pixel rightPixel = null;
+    Pixel leftPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+
+    // loop through the rows
+    for (int row = 233; row < 320; row++) {
+      // loop through the columns
+      for (int col = 240; col < 354; col++) {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][233-col+233];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+
+
+
+
+
+  }
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -262,8 +313,8 @@ public class Picture extends SimplePicture
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
-    Picture flower1 = new Picture("flower1.jpg");
-    Picture flower2 = new Picture("flower2.jpg");
+    Picture flower1 = new Picture("images/flower1.jpg");
+    Picture flower2 = new Picture("images/flower2.jpg");
     this.copy(flower1,0,0);
     this.copy(flower2,100,0);
     this.copy(flower1,200,0);
@@ -274,6 +325,22 @@ public class Picture extends SimplePicture
     this.copy(flower2,500,0);
     this.mirrorVertical();
     this.write("collage.jpg");
+  }
+
+  public void copy() {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+    for (int fromRow = fromStartRow, toRow = toStartRow; fromRow <= fromEndRow && toRow < toPixels.length; fromRow++,
+            toRow++) {
+      for (int fromCol = fromStartCol, toCol = toStartCol; fromCol <= fromEndCol && toCol < toPixels[0].length;
+           fromCol++, toCol++) {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }
   }
   
   
