@@ -286,29 +286,7 @@ public class Picture extends SimplePicture
     * @param startRow the start row to copy to
     * @param startCol the start col to copy to
     */
-  public void copy(Picture fromPic, 
-                 int startRow, int startCol)
-  {
-    Pixel fromPixel = null;
-    Pixel toPixel = null;
-    Pixel[][] toPixels = this.getPixels2D();
-    Pixel[][] fromPixels = fromPic.getPixels2D();
-    for (int fromRow = 0, toRow = startRow; 
-         fromRow < fromPixels.length &&
-         toRow < toPixels.length; 
-         fromRow++, toRow++)
-    {
-      for (int fromCol = 0, toCol = startCol; 
-           fromCol < fromPixels[0].length &&
-           toCol < toPixels[0].length;  
-           fromCol++, toCol++)
-      {
-        fromPixel = fromPixels[fromRow][fromCol];
-        toPixel = toPixels[toRow][toCol];
-        toPixel.setColor(fromPixel.getColor());
-      }
-    }   
-  }
+
 
   /** Method to create a collage of several pictures */
   public void createCollage()
@@ -327,21 +305,27 @@ public class Picture extends SimplePicture
     this.write("collage.jpg");
   }
 
-  public void copy() {
-    Pixel fromPixel = null;
-    Pixel toPixel = null;
-    Pixel[][] toPixels = this.getPixels2D();
-    Pixel[][] fromPixels = fromPic.getPixels2D();
-    for (int fromRow = fromStartRow, toRow = toStartRow; fromRow <= fromEndRow && toRow < toPixels.length; fromRow++,
-            toRow++) {
-      for (int fromCol = fromStartCol, toCol = toStartCol; fromCol <= fromEndCol && toCol < toPixels[0].length;
-           fromCol++, toCol++) {
-        fromPixel = fromPixels[fromRow][fromCol];
-        toPixel = toPixels[toRow][toCol];
-        toPixel.setColor(fromPixel.getColor());
-      }
+    public void copy(Picture fromPic, int startRow, int startCol) {
+        Pixel fromPixel = null;
+        Pixel toPixel = null;
+        Pixel[][] toPixels = this.getPixels2D();
+        Pixel[][] fromPixels = fromPic.getPixels2D();
+        for (int fromRow = 0, toRow = startRow;
+             fromRow < fromPixels.length &&
+                     toRow < toPixels.length;
+             fromRow++, toRow++)
+        {
+            for (int fromCol = 0, toCol = startCol;
+                 fromCol < fromPixels[0].length &&
+                         toCol < toPixels[0].length;
+                 fromCol++, toCol++)
+            {
+                fromPixel = fromPixels[fromRow][fromCol];
+                toPixel = toPixels[toRow][toCol];
+                toPixel.setColor(fromPixel.getColor());
+            }
+        }
     }
-  }
   
   
   /** Method to show large changes in color 

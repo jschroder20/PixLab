@@ -106,7 +106,7 @@ public class PictureTester
   public static void testCopy()
   {
     Picture canvas = new Picture("images/640x480.jpg");
-    canvas.copy();
+    canvas.copy(canvas,50,0);
     canvas.explore();
   }
   
@@ -125,23 +125,23 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    //testZeroBlue();
-    //testKeepOnlyBlue();
+    testZeroBlue();
+    testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
+    testNegate();
+    testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
-    //testMirrorVerticalRightToLeft();
-    //testMirrorHorizontal();
-    //testMirrorHorizontalBotToTop();
+    testMirrorVerticalRightToLeft();
+    testMirrorHorizontal();
+    testMirrorHorizontalBotToTop();
     testMirrorTemple();
     testMirrorArms();
     testMirrorGull();
     //testMirrorDiagonal();
-    //testCollage();
-    //testCopy();
+    testCollage();
+    testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
