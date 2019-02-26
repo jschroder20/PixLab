@@ -23,8 +23,7 @@ public class PictureTester
   public static void testKeepOnlyBlue() {
     Picture beach = new Picture("images/beach.jpg");
     beach.explore(); // comment these out in repl.it
-    beach.zeroRed();
-    beach.zeroGreen();
+    beach.keepOnlyBlue();
     beach.explore(); // comment these out in repl.it
   }
 
@@ -39,6 +38,13 @@ public class PictureTester
     Picture beach = new Picture("images/beach.jpg");
     beach.explore(); // comment these out in repl.it
     beach.grayscale();
+    beach.explore();
+  }
+
+  public static void testFixUnderwater() {
+    Picture beach = new Picture("images/beach.jpg");
+    beach.explore(); // comment these out in repl.it
+    beach.fixUnderwater();
     beach.explore();
   }
 
@@ -94,12 +100,25 @@ public class PictureTester
     temple.mirrorGull();
     temple.explore();
   }
-  
+
+  public static void testMirrorDiagonal(){
+    Picture temple = new Picture("images/seagull.jpg");
+    temple.explore();
+    temple.mirrorDiagonal();
+    temple.explore();
+  }
   /** Method to test the collage method */
   public static void testCollage()
   {
     Picture canvas = new Picture("images/640x480.jpg");
     canvas.createCollage();
+    canvas.explore();
+  }
+
+  public static void testMyCollage()
+  {
+    Picture canvas = new Picture("images/640x480.jpg");
+    canvas.myCollage();
     canvas.explore();
   }
 
@@ -117,6 +136,13 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
+
+  public static void testEdgeDetection2()
+  {
+    Picture swan = new Picture("images/swan.jpg");
+    swan.edgeDetection2(10);
+    swan.explore();
+  }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -127,28 +153,27 @@ public class PictureTester
     // to run
     testZeroBlue();
     testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
     testNegate();
     testGrayscale();
-    //testFixUnderwater();
-    //testMirrorVertical();
+    testFixUnderwater();
+    testMirrorVertical();
     testMirrorVerticalRightToLeft();
     testMirrorHorizontal();
     testMirrorHorizontalBotToTop();
     testMirrorTemple();
     testMirrorArms();
     testMirrorGull();
-    //testMirrorDiagonal();
+    testMirrorDiagonal();
     testCollage();
+    testMyCollage();
     testCopy();
-    //testEdgeDetection();
-    //testEdgeDetection2();
-    //testChromakey();
-    //testEncodeAndDecode();
-    //testGetCountRedOverValue(250);
-    //testSetRedToHalfValueInTopHalf();
-    //testClearBlueOverValue(200);
-    //testGetAverageForColumn(0);
+    testEdgeDetection();
+    testEdgeDetection2();/*
+    testChromakey();
+    testEncodeAndDecode();
+    testGetCountRedOverValue(250);
+    testSetRedToHalfValueInTopHalf();
+    testClearBlueOverValue(200);
+    testGetAverageForColumn(0);*/
   }
 }
