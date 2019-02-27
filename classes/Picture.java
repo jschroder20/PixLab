@@ -141,9 +141,10 @@ public class Picture extends SimplePicture
     Pixel [][] pixels = this.getPixels2D();
     for (Pixel[] rowArray : pixels){
       for (Pixel pixelObj : rowArray) {
-        pixelObj.setRed((pixelObj.getRed()+pixelObj.getGreen()+pixelObj.getBlue()/3));
-        pixelObj.setGreen((pixelObj.getRed()+pixelObj.getGreen()+pixelObj.getBlue()/3));
-        pixelObj.setBlue((pixelObj.getRed()+pixelObj.getGreen()+pixelObj.getBlue()/3));
+        pixelObj.setRed(30*(pixelObj.getRed())/100);
+        pixelObj.setGreen(60*(pixelObj.getGreen()/100));
+        pixelObj.setBlue(11*(pixelObj.getBlue())/100);
+
       }
     }
   }
@@ -344,14 +345,22 @@ public class Picture extends SimplePicture
     public void myCollage(){
     Picture beach = new Picture ("images/beach.jpg");
     Picture wall = new Picture ("images/wall.jpg");
-    Picture flower = new Picture ("flower1/wall.jpg");
+    Picture flower = new Picture ("images/flower2.jpg");
+      Picture koala = new Picture ("images/koala.jpg");
+
+      wall.mirrorHorizontal();
+      koala.keepOnlyBlue();
+      koala.mirrorVertical();
+      flower.mirrorHorizontalBotToTop();
 
     this.copy(beach, 200, 0);
-      this.copy(wall, 30, 100);
-      this.copy(flower, 50, 200);
+    this.copy(wall, 30, 0);
+    this.copy(flower, 0, 0);
+    this.copy(koala, 0, 300);
 
 
-      this.write("collage.jpg");
+
+    //this.write("collage.jpg");
 
 
 

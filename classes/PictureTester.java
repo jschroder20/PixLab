@@ -151,10 +151,10 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+   /* testZeroBlue();
     testKeepOnlyBlue();
-    testNegate();
-    testGrayscale();
+    testNegate();*/
+    testGrayscale();/*
     testFixUnderwater();
     testMirrorVertical();
     testMirrorVerticalRightToLeft();
@@ -168,7 +168,7 @@ public class PictureTester
     testMyCollage();
     testCopy();
     testEdgeDetection();
-    testEdgeDetection2();/*
+    testEdgeDetection2();
     testChromakey();
     testEncodeAndDecode();
     testGetCountRedOverValue(250);
